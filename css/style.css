@@ -67,7 +67,7 @@
       }
   }
   .layout-page {
-      padding: 2rem;
+      padding: 2rem 2rem 0;
       background-color: white; 
   }
   @media (min-width:600px) {
@@ -175,20 +175,44 @@
     }
 
     /*header*/ 
+    @media (min-width:601px){
+        header {
+            min-height: 433px;
+            background-image: url(../images/photo-montage_1000.jpg);
+            background-position: 0 28px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            font-size: 1.6rem;
+        }
+    }
     .nav__header {
         display: flex;
         flex-direction: column;
-        justify-content: center; 
+        justify-content: center;
+        flex-wrap: wrap; 
     }
     @media (min-width:601px){
         .nav__header{
             flex-direction: row;
             justify-content: space-between;
-            align-items: flex-end;
+            align-items: flex-start;
+            flex-wrap: nowrap;
         }
     }
     .logo{
-       align-self: center;
+        flex-grow: 1;
+        text-align: center;
+        transition: all 0.5s;
+    }
+    @media (min-width:601px) {
+        .logo{
+            max-width: 250px;
+        }
+    }
+    @media (min-width:800px) {
+        .logo{
+            max-width: 300px;
+        }
     }
     .nav__header .nav__list {
         list-style: none;
@@ -197,36 +221,45 @@
         justify-content: space-between;
         padding: 0;
         margin: 0;
+        width: 100%;
+    }
+    @media (min-width:601px) {
+        .nav__header .nav__list{
+            width: auto;
+        }
     }
     .nav__listItem {
         padding: 0 1em;
     }
-    .nav__listItem:first-of-type {
-        background-color: #bfbfbf;
-    }
     .nav__link{
+        display: inline-block;
         text-decoration: none;
         text-transform: uppercase;   
+    }
+    .nav__link:hover {
+        color: orangered;
+    }
+    @media (min-width:601px) {
+        picture {
+            display: none;
+        }
     }
     /*introduction*/ 
     .introduction {
         display: flex;
         flex-direction: column;
+        text-align: center; 
     }
     .titre {
         line-height: 1;
-        text-align: center; 
-        padding-top: .5em;
-        margin: 0;
+        margin-bottom: 0;
     }
     .sous-titre {
         line-height: 1;
-        text-align: center;
-        padding: 0;
-        margin: 0;
+        margin-top: 0;
     }
     .introduction p{
-        text-align: center;
+        text-align: justify;
     }
     /*descriptions*/
     .descriptions {
@@ -236,8 +269,7 @@
     @media (min-width:601px) {
         .descriptions {
             flex-direction: row;
-            justify-content: space-between;
-            align-content: flex-start;   
+            justify-content: space-between;  
         }
     }
     .section01, .section02, .section03 {
@@ -245,7 +277,7 @@
     }
     @media (min-width:601px) {
         .section01, .section02 {
-            margin-right: 1em;
+            margin-right: 1rem;
         }
     }
     .descriptions h2{
@@ -254,7 +286,8 @@
     /*encadres*/
     .encadres {
         display: flex;
-        flex-direction: column;   
+        flex-direction: column; 
+        justify-content: space-between;  
     }
     @media (min-width:601px) {
         .encadres{
@@ -265,7 +298,7 @@
         padding-left: 8px;
     }
     .encadres__item form{
-        padding-bottom: 4px;
+        margin-bottom: 1em;
     }
     section.encadres__item {
         margin-right: 10px;
@@ -276,15 +309,15 @@
     }
     @media (min-width:601px) {
         .encadres__item {
+            flex: 1 0 40%;
             background-color: #bfbfbf;
-            width: 100%;
+            padding: 1rem;
         }
     }
     /*navigation footer*/
     .nav__footer {
         display: flex;
-        flex-direction: row;
-        
+        flex-direction: row;  
     }
     .nav__footer .nav__list {
         background-color: black;
@@ -292,27 +325,32 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        flex: 1 1 auto;
+        width: 100%;
         padding: 0;
-        margin-bottom: 0; 
-    }
-    .nav__footer .nav__listItem:first-child{
-        background-color: #cceeff;
+        margin: 0; 
     }
     .nav__footer .nav__link{
         color:white;
     }
-    .nav__footer .nav__link--active{
-        color: #ff4000;
+    .nav__footer .nav__link:hover{
+        color: orangered;
+    }
+    .nav__footer .nav__link--active a{
+        color: orangered;
+    }
+    .nav__link--active {
+        background-color: #dbe8ec;
     }
     /*credits*/
     .credits{
         display: flex;
         flex-direction: column;
-        background-color: #bfbfbf;    
+        background-color: #bfbfbf; 
+           
     }
     .credits h2{
         margin-left: 1em;
+        margin-bottom: 0;
     }
     .credits ol{
         margin-left: 2em;
@@ -328,5 +366,6 @@
         text-align: center;
         background-color: #bfbfbf;
         margin: auto;
+        padding-bottom: 1rem;
         flex: 1 1 auto;
     }
